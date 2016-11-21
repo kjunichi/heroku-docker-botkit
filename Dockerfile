@@ -1,6 +1,6 @@
 FROM node:6-alpine
 RUN apk update
-RUN apk --update add cairo-dev git python alpine-sdk libjpeg-turbo-dev libpng-dev curl jq
+RUN apk --update --no-cache add tzdata giflib-dev cairo-dev git python alpine-sdk libjpeg-turbo-dev libpng-dev curl jq
 ADD ./webapp /opt/webapp/
 WORKDIR /opt/webapp
 
