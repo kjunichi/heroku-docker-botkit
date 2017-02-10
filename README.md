@@ -4,6 +4,11 @@
 
 - https://developers.google.com/google-apps/calendar/quickstart/nodejs
 
+You need these files.
+
+- ~/.credentials/calendar-nodejs-quickstart.json
+- client_secret.json
+
 ## To use
 
 ```shell
