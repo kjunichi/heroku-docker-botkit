@@ -8,6 +8,10 @@ const ameshUtil = require('amesh-cli');
 const libcalendar = require('./libcalendar.js');
 const fs = require('fs');
 
+process.on('uncaughtException', function(err) {
+	    console.log(err);
+});
+
 var app = express();
 app.set('views', __dirname + '/views');
 app.use(express.static(__dirname + '/public'));
@@ -20,6 +24,7 @@ app.get('/', function(req, res) {
 
 app.get('/amesh', function(req, res) {
   console.log(ameshUtil.getAmeshImageUrl())
+	  try {
   ameshUtil.getImage(function(img){
     const now = new Date()
     const formatted = now.toFormat("YYYYMMDDHH24")
@@ -28,6 +33,9 @@ app.get('/amesh', function(req, res) {
     res.type('png')
     res.send(img)
   })
+	  } catch(e) {
+		  console.log(e);
+	  }
 });
 
 app.get('/ldd', function(req, res) {
